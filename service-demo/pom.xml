@@ -8,6 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>service-demo</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <name>service-demo</name>
     <description>Demo project for Spring Boot</description>
 
