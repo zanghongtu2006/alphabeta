@@ -1,4 +1,4 @@
-package com.zanghongtu.alphabeta.common;
+package com.zanghongtu.database;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,11 +8,12 @@ import java.util.Map;
  * @date : Created in 上午11:15 19-1-16
  */
 public class DataTypeMapping {
-    public static Map<String, String> mysqlJavaMapping = new HashMap<String, String>(){
+    public static Map<String, String> mysqlJavaMapping = new HashMap<String, String>() {
         {
             put("VARCHAR", "String");
             put("CHAR", "String");
             put("TEXT", "String");
+            put("MEDIUMTEXT", "String");
 
             put("INTEGER", "Integer");
             put("INT", "Integer");

@@ -16,5 +16,8 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     # 日志中打印SQL
     show-sql: true
-server:
-  port: 8080
+database:
+  package: com.zanghongtu.servicedemo.testonly # 此处需要指定在ApplicationController同级或下级路径下
+  service: true
+  repository: true
+  model: true

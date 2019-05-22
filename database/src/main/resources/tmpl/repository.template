@@ -1,0 +1,10 @@
+package ###BASE_PACKAGE###.repository;
+
+import ###BASE_PACKAGE###.model.###CLASS_NAME###;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/**
+ * @author : Auto Generated
+ */
+public interface ###CLASS_NAME###Repository extends JpaRepository<###CLASS_NAME###, Long> {
+}

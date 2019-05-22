@@ -17,6 +17,10 @@
             <groupId>com.zanghongtu</groupId>
             <artifactId>service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zanghongtu</groupId>
+            <artifactId>database</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

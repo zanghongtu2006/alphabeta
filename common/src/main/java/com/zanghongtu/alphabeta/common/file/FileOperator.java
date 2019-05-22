@@ -1,9 +1,6 @@
 package com.zanghongtu.alphabeta.common.file;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * @author : Hongtu Zang
@@ -36,5 +33,19 @@ public class FileOperator {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String readFile(String filePath) {
+        File file = new File(filePath);
+        Long filelength = file.length();
+        byte[] filecontent = new byte[filelength.intValue()];
+        try {
+            FileInputStream in = new FileInputStream(file);
+            in.read(filecontent);
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new String(filecontent);
     }
 }

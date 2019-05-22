@@ -1,0 +1,30 @@
+package ###BASE_PACKAGE###.service;
+
+import ###BASE_PACKAGE###.model.###CLASS_NAME###;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
+
+import java.util.List;
+import java.util.Set;
+
+/**
+ * @author : Auto Generated
+ */
+public interface ###CLASS_NAME###Service {
+    ###CLASS_NAME### create(###CLASS_NAME### model);
+
+    ###CLASS_NAME### delete(Long id);
+
+    ###CLASS_NAME### update(###CLASS_NAME### model);
+
+    ###CLASS_NAME### get(Long id);
+
+    List<###CLASS_NAME###> listAll();
+
+    List<###CLASS_NAME###> search(###CLASS_NAME### model);
+
+    List<###CLASS_NAME###> search(###CLASS_NAME### model, Sort sort);
+
+    Page<###CLASS_NAME###> pageSearch(###CLASS_NAME### model, int page, int pageSize, Sort sort);
+}
+

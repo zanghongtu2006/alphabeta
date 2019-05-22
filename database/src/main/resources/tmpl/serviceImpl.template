@@ -1,0 +1,64 @@
+package ###BASE_PACKAGE###.service.impl;
+
+import ###BASE_PACKAGE###.model.###CLASS_NAME###;
+import ###BASE_PACKAGE###.repository.###CLASS_NAME###Repository;
+import ###BASE_PACKAGE###.service.###CLASS_NAME###Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
+import org.springframework.stereotype.Service;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * @author : Auto Generated
+ */
+@Service
+public class ###CLASS_NAME###ServiceImpl implements ###CLASS_NAME###Service {
+    @Autowired
+    private ###CLASS_NAME###Repository repository;
+
+    @Override
+    public ###CLASS_NAME### create(###CLASS_NAME### model) {
+        return repository.save(model);
+    }
+
+    @Override
+    public ###CLASS_NAME### delete(Long id) {
+        ###CLASS_NAME### model = repository.getOne(id);
+        repository.delete(model);
+        return model;
+    }
+
+    @Override
+    public ###CLASS_NAME### update(###CLASS_NAME### model) {
+        return repository.save(model);
+    }
+
+    @Override
+    public ###CLASS_NAME### get(Long id) {
+        return repository.getOne(id);
+    }
+
+    @Override
+    public List<###CLASS_NAME###> listAll() {
+        return repository.findAll();
+    }
+
+    @Override
+    public List<###CLASS_NAME###> search(###CLASS_NAME### model) {
+        return repository.findAll(Example.of(model));
+    }
+
+    @Override
+    public List<###CLASS_NAME###> search(###CLASS_NAME### model, Sort sort) {
+        return repository.findAll(Example.of(model), sort);
+    }
+
+    @Override
+    public Page<###CLASS_NAME###> pageSearch(###CLASS_NAME### model, int page, int pageSize, Sort sort) {
+        Pageable pageable = new PageRequest(page, pageSize, sort);
+        return repository.findAll(Example.of(model), pageable);
+    }
+}

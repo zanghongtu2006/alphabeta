@@ -1,0 +1,34 @@
+package ###BASE_PACKAGE###.model;
+
+import lombok.Data;
+
+import javax.persistence.*;
+
+import java.util.Date;
+import java.lang.Boolean;
+import java.lang.String;
+import java.lang.Long;
+import java.lang.Integer;
+
+/**
+ * @author Auto Generated
+ */
+@Data
+@Entity
+@Table(name = "###TABLE_NAME###")
+public class ###CLASS_NAME### {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(name = "create_time")
+    private Date createTime;
+
+    @Column(name = "update_time")
+    private Date updateTime;
+
+    @Column(name = "available")
+    private Boolean available;
+
+###COLUMNS###
+}
