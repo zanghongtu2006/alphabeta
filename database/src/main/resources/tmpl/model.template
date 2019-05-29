@@ -1,5 +1,6 @@
 package ###BASE_PACKAGE###.model;
 
+import com.zanghongtu.database.repository.model.BaseModel;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,19 +17,6 @@ import java.lang.Integer;
 @Data
 @Entity
 @Table(name = "###TABLE_NAME###")
-public class ###CLASS_NAME### {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "create_time")
-    private Date createTime;
-
-    @Column(name = "update_time")
-    private Date updateTime;
-
-    @Column(name = "available")
-    private Boolean available;
-
+public class ###CLASS_NAME###  extends BaseModel{
 ###COLUMNS###
 }

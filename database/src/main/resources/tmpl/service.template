@@ -19,7 +19,7 @@ public interface ###CLASS_NAME###Service {
 
     ###CLASS_NAME### get(Long id);
 
-    List<###CLASS_NAME###> listAll();
+    List<###CLASS_NAME###> list();
 
     List<###CLASS_NAME###> search(###CLASS_NAME### model);
 
