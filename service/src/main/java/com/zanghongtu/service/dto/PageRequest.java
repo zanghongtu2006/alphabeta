@@ -14,11 +14,19 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PageRequest {
-    private int page;
+    private Integer page;
 
-    private int pageSize;
+    private Integer pageSize;
 
     private Set<String> sortFields;
 
     private Sort sort;
+
+    public Integer getPage() {
+        return page == null ? 1 : page;
+    }
+
+    public Integer getPageSize() {
+        return pageSize == null ? Integer.MAX_VALUE : pageSize;
+    }
 }
