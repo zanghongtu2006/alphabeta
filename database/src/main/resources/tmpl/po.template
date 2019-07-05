@@ -1,0 +1,22 @@
+package ###BASE_PACKAGE###.model.po;
+
+import com.zanghongtu.database.repository.model.BaseModel;
+import lombok.Data;
+
+import javax.persistence.*;
+
+import java.util.Date;
+import java.lang.Boolean;
+import java.lang.String;
+import java.lang.Long;
+import java.lang.Integer;
+
+/**
+ * @author Auto Generated
+ */
+@Data
+@Entity
+@Table(name = "###TABLE_NAME###")
+public class ###CLASS_NAME###PO  extends BaseModel {
+###COLUMNS###
+}

@@ -23,6 +23,3 @@ management:
       show-details: ALWAYS
     logfile:
       enabled: true
-spring:
-  application:
-    name: service-core
