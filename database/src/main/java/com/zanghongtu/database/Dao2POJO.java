@@ -3,17 +3,13 @@ package com.zanghongtu.database;
 
 import com.zanghongtu.alphabeta.common.CamelCase;
 import com.zanghongtu.alphabeta.common.file.FileOperator;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.naming.Context;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.annotation.Annotation;
 import java.net.URLDecoder;
@@ -147,19 +143,13 @@ public class Dao2POJO {
     }
 
     private String readTemplate(String templateName) {
-        Resource resource = new ClassPathResource("tmpl/" + templateName + ".template");
+        String fileName = "/tmpl/" + templateName + ".template";
+
         try {
-            File file = resource.getFile();
-            Long filelength = file.length();
-            byte[] filecontent = new byte[filelength.intValue()];
-            try {
-                FileInputStream in = new FileInputStream(file);
-                in.read(filecontent);
-                in.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return new String(filecontent);
+            InputStream inputStream = this.getClass().getResourceAsStream(fileName);
+            byte[] b = new byte[inputStream.available()];
+            inputStream.read(b);
+            return new String(b);
         } catch (IOException e) {
             e.printStackTrace();
         }

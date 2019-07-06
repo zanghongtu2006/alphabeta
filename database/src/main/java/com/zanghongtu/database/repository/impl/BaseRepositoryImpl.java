@@ -9,10 +9,10 @@ import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Predicate;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author : Hongtu Zang

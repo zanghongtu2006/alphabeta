@@ -1,7 +1,6 @@
 package com.zanghongtu.database.repository.config;
 
 import com.zanghongtu.database.repository.factory.BaseInLikeRepositoryFactoryBean;
-import com.zanghongtu.database.repository.factory.BaseRepositoryFactoryBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
