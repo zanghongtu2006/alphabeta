@@ -1,97 +1,40 @@
 package com.zanghongtu.service.dto;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
  * @author : Hongtu Zang
  * @date : Created in 下午5:09 19-4-24
  */
-public class PageResponse<T> extends BaseResponse {
+@Data
+public class PageResponse<T> {
+    /**
+     * 当前页
+     */
     private int page;
 
+    /**
+     * 每页个数
+     */
     private int pageSize;
 
-    private int size;
+    /**
+     * 总数
+     */
+    private long total;
 
-    private int total;
-
+    /**
+     * 结果列表
+     */
     private List<T> results;
 
-    public PageResponse(BaseErrorCode errorCode, int page, int pageSize, int size, int total, List<T> results) {
-        super(errorCode);
+    public PageResponse(int page, int pageSize, long total, List<T> results) {
         this.page = page;
         this.pageSize = pageSize;
-        this.size = size;
         this.total = total;
         this.results = results;
     }
 
-    public PageResponse(BaseErrorCode errorCode, String message, int page, int pageSize, int size, int total, List<T> results) {
-        super(errorCode.getCode(), message);
-        this.page = page;
-        this.pageSize = pageSize;
-        this.size = size;
-        this.total = total;
-        this.results = results;
-    }
-
-    public PageResponse(Integer code, String message, int page, int pageSize, int size, int total, List<T> results) {
-        super(code, message);
-        this.page = page;
-        this.pageSize = pageSize;
-        this.size = size;
-        this.total = total;
-        this.results = results;
-    }
-
-    public int getPage() {
-        return page;
-    }
-
-    public void setPage(int page) {
-        this.page = page;
-    }
-
-    public int getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public List<T> getResults() {
-        return results;
-    }
-
-    public void setResults(List<T> results) {
-        this.results = results;
-    }
-
-    @Override
-    public String toString() {
-        return "PageResponse{" +
-                "page=" + page +
-                ", pageSize=" + pageSize +
-                ", size=" + size +
-                ", total=" + total +
-                ", results=" + results +
-                "} " + super.toString();
-    }
 }
