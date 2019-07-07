@@ -37,6 +37,7 @@ public class Dao2POJO {
         defaultColumns.add("create_time");
         defaultColumns.add("update_time");
         defaultColumns.add("available");
+        defaultColumns.add("rev");
     }
 
     public void init(String jdbcUrl, String dbUser, String dbPwd) {
@@ -60,7 +61,9 @@ public class Dao2POJO {
             //获取表的字段，拼成POJO
             for (String tableName : tableNames) {
                 String className = CamelCase.toCamelCaseClassName(tableName);
-                writePojos(connection, tableName, className, basePackage);
+//                writePojos(connection, tableName, className, basePackage);
+                writePos(connection, tableName, className, basePackage);
+                writeDos(connection, tableName, className, basePackage);
                 writeRepositories(className, basePackage);
                 writeServices(className, basePackage);
             }
@@ -93,6 +96,65 @@ public class Dao2POJO {
                     .replaceAll("###COLUMNS###", columnStr.toString())
                     .replaceAll("###TABLE_NAME###", tableName);
             String filePath = srcBasePath + "model/" + className + ".java";
+            FileOperator.writeFile(filePath, content);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void writePos(Connection connection, String tableName, String className, String basePackage) {
+        String sql = "SELECT * FROM " + tableName + " WHERE 1=2;";
+        try (PreparedStatement ps = connection.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            ResultSetMetaData resultSetMetaData = rs.getMetaData();
+            System.out.println("================" + tableName + "PO================");
+
+            StringBuilder columnStr = new StringBuilder();
+            for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++) {
+                String colName = resultSetMetaData.getColumnName(i);
+                String paramName = CamelCase.toCamelCase(colName);
+                if (defaultColumns.contains(colName)) {
+                    continue;
+                }
+                String colType = DataTypeMapping.mysqlJavaMapping.get(resultSetMetaData.getColumnTypeName(i));
+                columnStr.append("    @Column(name = \"").append(colName).append("\")").append("\n");
+                columnStr.append("    private ").append(colType).append(" ").append(paramName).append(";\n\n");
+            }
+            String content = readTemplate("po")
+                    .replaceAll("###BASE_PACKAGE###", basePackage)
+                    .replaceAll("###CLASS_NAME###", className)
+                    .replaceAll("###COLUMNS###", columnStr.toString())
+                    .replaceAll("###TABLE_NAME###", tableName);
+            String filePath = srcBasePath + "model/po/" + className + "PO.java";
+            FileOperator.writeFile(filePath, content);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void writeDos(Connection connection, String tableName, String className, String basePackage) {
+        String sql = "SELECT * FROM " + tableName + " WHERE 1=2;";
+        try (PreparedStatement ps = connection.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            ResultSetMetaData resultSetMetaData = rs.getMetaData();
+            System.out.println("================" + tableName + "DO================");
+
+            StringBuilder columnStr = new StringBuilder();
+            for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++) {
+                String colName = resultSetMetaData.getColumnName(i);
+                String paramName = CamelCase.toCamelCase(colName);
+                if (defaultColumns.contains(colName)) {
+                    continue;
+                }
+                String colType = DataTypeMapping.mysqlJavaMapping.get(resultSetMetaData.getColumnTypeName(i));
+                columnStr.append("    private ").append(colType).append(" ").append(paramName).append(";\n\n");
+            }
+            String content = readTemplate("do")
+                    .replaceAll("###BASE_PACKAGE###", basePackage)
+                    .replaceAll("###CLASS_NAME###", className)
+                    .replaceAll("###COLUMNS###", columnStr.toString())
+                    .replaceAll("###TABLE_NAME###", tableName);
+            String filePath = srcBasePath + "model/" + className + "DO.java";
             FileOperator.writeFile(filePath, content);
         } catch (SQLException e) {
             e.printStackTrace();

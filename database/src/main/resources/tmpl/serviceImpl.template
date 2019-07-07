@@ -1,6 +1,6 @@
 package ###BASE_PACKAGE###.service.impl;
 
-import ###BASE_PACKAGE###.model.###CLASS_NAME###;
+import ###BASE_PACKAGE###.model.po.###CLASS_NAME###PO;
 import ###BASE_PACKAGE###.repository.###CLASS_NAME###Repository;
 import ###BASE_PACKAGE###.service.###CLASS_NAME###Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.Optional;
 
 /**
  * @author : Auto Generated
@@ -20,42 +21,42 @@ public class ###CLASS_NAME###ServiceImpl implements ###CLASS_NAME###Service {
     private ###CLASS_NAME###Repository repository;
 
     @Override
-    public ###CLASS_NAME### create(###CLASS_NAME### model) {
+    public ###CLASS_NAME###PO create(###CLASS_NAME###PO model) {
         return repository.save(model);
     }
 
     @Override
-    public ###CLASS_NAME### delete(Long id) {
+    public ###CLASS_NAME###PO delete(Long id) {
         return repository.delete(id);
     }
 
     @Override
-    public ###CLASS_NAME### update(###CLASS_NAME### model) {
+    public ###CLASS_NAME###PO update(###CLASS_NAME###PO model) {
         return repository.update(model);
     }
 
     @Override
-    public ###CLASS_NAME### get(Long id) {
-        return repository.get(id);
+    public Optional<###CLASS_NAME###PO> get(Long id) {
+        return Optional.ofNullable(repository.get(id));
     }
 
     @Override
-    public List<###CLASS_NAME###> list() {
+    public List<###CLASS_NAME###PO> list() {
         return repository.list();
     }
 
     @Override
-    public List<###CLASS_NAME###> search(###CLASS_NAME### model) {
+    public List<###CLASS_NAME###PO> search(###CLASS_NAME###PO model) {
         return repository.list(model);
     }
 
     @Override
-    public List<###CLASS_NAME###> search(###CLASS_NAME### model, Sort sort) {
+    public List<###CLASS_NAME###PO> search(###CLASS_NAME###PO model, Sort sort) {
         return repository.list(model, sort);
     }
 
     @Override
-    public Page<###CLASS_NAME###> pageSearch(###CLASS_NAME### model, int page, int pageSize, Sort sort) {
+    public Page<###CLASS_NAME###PO> pageSearch(###CLASS_NAME###PO model, int page, int pageSize, Sort sort) {
         return repository.list(model, sort, page, pageSize);
     }
 }

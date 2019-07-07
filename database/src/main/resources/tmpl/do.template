@@ -1,22 +1,12 @@
-package ###BASE_PACKAGE###.model.do;
+package ###BASE_PACKAGE###.model;
 
-import com.zanghongtu.database.repository.model.BaseModel;
+import com.zanghongtu.database.repository.model.BaseModelDO;
 import lombok.Data;
-
-import javax.persistence.*;
-
-import java.util.Date;
-import java.lang.Boolean;
-import java.lang.String;
-import java.lang.Long;
-import java.lang.Integer;
 
 /**
  * @author Auto Generated
  */
 @Data
-@Entity
-@Table(name = "###TABLE_NAME###")
-public class ###CLASS_NAME###DO  extends BaseModel {
+public class ###CLASS_NAME###DO extends BaseModelDO {
 ###COLUMNS###
 }

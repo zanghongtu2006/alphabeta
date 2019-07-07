@@ -1,6 +1,6 @@
 package com.zanghongtu.database.repository;
 
-import com.zanghongtu.database.repository.model.BaseModel;
+import com.zanghongtu.database.repository.model.BaseModelPO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.NoRepositoryBean;
@@ -15,7 +15,7 @@ import java.util.Set;
  * @date : Created in 下午1:10 19-5-27
  */
 @NoRepositoryBean
-public interface BaseInLikeRepository<T extends BaseModel, ID extends Serializable>
+public interface BaseInLikeRepository<T extends BaseModelPO, ID extends Serializable>
         extends BaseRepository<T, ID> {
 
     <V> List<T> in(Map<String, Set<V>> conditions);

@@ -1,7 +1,7 @@
 package com.zanghongtu.database.repository.impl;
 
 import com.zanghongtu.database.repository.BaseInLikeRepository;
-import com.zanghongtu.database.repository.model.BaseModel;
+import com.zanghongtu.database.repository.model.BaseModelPO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +21,7 @@ import java.util.*;
  * @date : Created in 下午1:18 19-5-28
  */
 @Transactional(rollbackFor = Exception.class)
-public class BaseInLikeRepositoryImpl<T extends BaseModel, ID extends Serializable>
+public class BaseInLikeRepositoryImpl<T extends BaseModelPO, ID extends Serializable>
         extends BaseRepositoryImpl<T, ID>
         implements BaseInLikeRepository<T, ID> {
 
@@ -364,15 +364,15 @@ public class BaseInLikeRepositoryImpl<T extends BaseModel, ID extends Serializab
                 Predicate predicate = criteriaBuilder.like(root.get(colName), conditions.get(colName));
                 list.add(predicate);
             }
+            Predicate available = criteriaBuilder.equal(root.get("available"), true);
             Predicate predicate;
             if (list.size() != 0) {
                 Predicate[] p = new Predicate[list.size()];
                 predicate = criteriaBuilder.and(list.toArray(p));
+                return criteriaBuilder.or(predicate, available);
             } else {
-                predicate = null;
+                return criteriaBuilder.and(available);
             }
-            Predicate available = criteriaBuilder.equal(root.get("available"), true);
-            return criteriaBuilder.and(predicate, available);
         };
     }
 
@@ -387,7 +387,7 @@ public class BaseInLikeRepositoryImpl<T extends BaseModel, ID extends Serializab
             Predicate predicate;
             if (list.size() != 0) {
                 Predicate[] p = new Predicate[list.size()];
-                predicate = criteriaBuilder.and(list.toArray(p));
+                predicate = criteriaBuilder.or(list.toArray(p));
             } else {
                 predicate = null;
             }

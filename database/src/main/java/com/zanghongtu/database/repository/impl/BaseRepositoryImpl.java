@@ -1,7 +1,7 @@
 package com.zanghongtu.database.repository.impl;
 
 import com.zanghongtu.database.repository.BaseRepository;
-import com.zanghongtu.database.repository.model.BaseModel;
+import com.zanghongtu.database.repository.model.BaseModelPO;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
@@ -19,7 +19,7 @@ import java.util.List;
  * @date : Created in 下午1:18 19-5-28
  */
 @Transactional(rollbackFor = Exception.class)
-public class BaseRepositoryImpl<T extends BaseModel, ID extends Serializable>
+public class BaseRepositoryImpl<T extends BaseModelPO, ID extends Serializable>
         extends SimpleJpaRepository<T, ID>
         implements BaseRepository<T, ID> {
 
@@ -37,6 +37,7 @@ public class BaseRepositoryImpl<T extends BaseModel, ID extends Serializable>
         model.setCreateTime(now);
         model.setUpdateTime(now);
         model.setAvailable(true);
+        model.setRev(true);
         return save(model);
     }
 

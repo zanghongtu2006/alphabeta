@@ -1,6 +1,6 @@
 package ###BASE_PACKAGE###.model.po;
 
-import com.zanghongtu.database.repository.model.BaseModel;
+import com.zanghongtu.database.repository.model.BaseModelPO;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +17,6 @@ import java.lang.Integer;
 @Data
 @Entity
 @Table(name = "###TABLE_NAME###")
-public class ###CLASS_NAME###PO  extends BaseModel {
+public class ###CLASS_NAME###PO  extends BaseModelPO {
 ###COLUMNS###
 }

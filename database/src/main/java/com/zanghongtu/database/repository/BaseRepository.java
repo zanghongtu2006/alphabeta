@@ -1,6 +1,6 @@
 package com.zanghongtu.database.repository;
 
-import com.zanghongtu.database.repository.model.BaseModel;
+import com.zanghongtu.database.repository.model.BaseModelPO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,9 +14,9 @@ import java.util.List;
  * @date : Created in 下午1:10 19-5-27
  */
 @NoRepositoryBean
-public interface BaseRepository<T extends BaseModel, ID extends Serializable>
+public interface BaseRepository<T extends BaseModelPO, ID extends Serializable>
         extends JpaRepository<T, ID> {
-    T create(T model);
+    T create(T model) throws Exception;
 
     /**
      * 逻辑删除, available = false
