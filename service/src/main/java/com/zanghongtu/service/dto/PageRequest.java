@@ -23,7 +23,7 @@ public class PageRequest {
     private Sort sort;
 
     public Integer getPage() {
-        return page == null ? 1 : page;
+        return page == null ? 0 : page;
     }
 
     public Integer getPageSize() {
