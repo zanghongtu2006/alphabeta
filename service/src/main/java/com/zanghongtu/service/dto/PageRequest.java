@@ -14,6 +14,9 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PageRequest {
+    /**
+     * 传入参赛从1开始，转换为Hibernate2.x后从0开始
+     */
     private Integer page;
 
     private Integer pageSize;
@@ -23,7 +26,7 @@ public class PageRequest {
     private Sort sort;
 
     public Integer getPage() {
-        return page == null ? 0 : page;
+        return page == null ? 0 : page-1;
     }
 
     public Integer getPageSize() {

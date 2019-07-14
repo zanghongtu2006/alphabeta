@@ -368,8 +368,8 @@ public class BaseInLikeRepositoryImpl<T extends BaseModelPO, ID extends Serializ
             Predicate predicate;
             if (list.size() != 0) {
                 Predicate[] p = new Predicate[list.size()];
-                predicate = criteriaBuilder.and(list.toArray(p));
-                return criteriaBuilder.or(predicate, available);
+                predicate = criteriaBuilder.or(list.toArray(p));
+                return criteriaBuilder.and(predicate, available);
             } else {
                 return criteriaBuilder.and(available);
             }

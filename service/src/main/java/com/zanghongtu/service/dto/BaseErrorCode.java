@@ -8,7 +8,7 @@ public enum BaseErrorCode {
     /**
      * 成功
      */
-    SUCCESS(200, "Success"),
+    SUCCESS(0, "SUCCESS"),
 
     /**
      * 业务失败异常
