@@ -1,6 +1,6 @@
 package ###BASE_PACKAGE###.model;
 
-import com.zanghongtu.database.repository.model.BaseModel;
+import com.caiguantianxia.database.repository.model.BaseModel;
 import lombok.Data;
 
 import javax.persistence.*;

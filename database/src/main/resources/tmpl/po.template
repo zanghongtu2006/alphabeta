@@ -1,7 +1,8 @@
 package ###BASE_PACKAGE###.model.po;
 
-import com.zanghongtu.database.repository.model.BaseModelPO;
+import com.caiguantianxia.database.repository.model.BaseModelPO;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
@@ -14,9 +15,10 @@ import java.lang.Integer;
 /**
  * @author Auto Generated
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "###TABLE_NAME###")
-public class ###CLASS_NAME###PO  extends BaseModelPO {
+public class ###CLASS_NAME###PO extends BaseModelPO {
 ###COLUMNS###
 }

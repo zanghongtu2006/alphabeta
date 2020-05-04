@@ -1,6 +1,6 @@
 package ###BASE_PACKAGE###.repository;
 
-import com.zanghongtu.database.repository.BaseInLikeRepository;
+import com.caiguantianxia.database.repository.model.BaseInLikeRepository;
 import ###BASE_PACKAGE###.model.po.###CLASS_NAME###PO;
 
 /**

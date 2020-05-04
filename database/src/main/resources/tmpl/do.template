@@ -1,11 +1,20 @@
 package ###BASE_PACKAGE###.model;
 
-import com.zanghongtu.database.repository.model.BaseModelDO;
+import com.caiguantianxia.database.repository.model.BaseModelDO;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+import javax.persistence.*;
+
+import java.util.Date;
+import java.lang.Boolean;
+import java.lang.String;
+import java.lang.Long;
+import java.lang.Integer;
 /**
  * @author Auto Generated
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ###CLASS_NAME###DO extends BaseModelDO {
 ###COLUMNS###
