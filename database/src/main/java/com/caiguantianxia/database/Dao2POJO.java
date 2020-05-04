@@ -36,6 +36,8 @@ public class Dao2POJO {
         defaultColumns.add("id");
         defaultColumns.add("create_time");
         defaultColumns.add("update_time");
+        defaultColumns.add("create_by");
+        defaultColumns.add("update_by");
         defaultColumns.add("available");
         defaultColumns.add("rev");
     }
@@ -47,8 +49,8 @@ public class Dao2POJO {
     }
 
     public void generateCodes() {
-        String basePackage = findSpringBootApplicationPackage();
-        srcBasePath = System.getProperty("user.dir") + "/src/main/java/dao/" + basePackage.replaceAll("\\.", "/") + "/";
+        String basePackage = findSpringBootApplicationPackage() + ".dao";
+        srcBasePath = System.getProperty("user.dir") + "/src/main/java/" + basePackage.replaceAll("\\.", "/") + "/";
         String dbName = jdbcUrl.split("[/?]")[3];
         try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPwd)) {
             DatabaseMetaData metaData = connection.getMetaData();
@@ -170,7 +172,7 @@ public class Dao2POJO {
         String content = readTemplate("serviceImpl")
                 .replaceAll("###BASE_PACKAGE###", basePackage)
                 .replaceAll("###CLASS_NAME###", className);
-        String filePath = srcBasePath + "service/impl/" + className + "ServiceImpl.java";
+        String filePath = srcBasePath + "service/impl/D" + className + "ServiceImpl.java";
         if (exist(filePath)) {
             return;
         }
@@ -181,7 +183,7 @@ public class Dao2POJO {
         String content = readTemplate("service")
                 .replaceAll("###BASE_PACKAGE###", basePackage)
                 .replaceAll("###CLASS_NAME###", className);
-        String filePath = srcBasePath + "service/" + className + "Service.java";
+        String filePath = srcBasePath + "service/D" + className + "Service.java";
         if (exist(filePath)) {
             return;
         }

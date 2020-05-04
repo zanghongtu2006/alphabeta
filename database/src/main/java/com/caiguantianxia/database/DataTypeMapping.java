@@ -20,6 +20,7 @@ public class DataTypeMapping {
             put("INT", "Integer");
             put("INT UNSIGNED", "Integer");
             put("TINYINT", "Integer");
+            put("TINYINT UNSIGNED", "Integer");
             put("SMALLINT", "Integer");
             put("MEDIUMINT", "Integer");
 

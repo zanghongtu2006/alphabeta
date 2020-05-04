@@ -1,6 +1,6 @@
 package ###BASE_PACKAGE###.repository;
 
-import com.caiguantianxia.database.repository.model.BaseInLikeRepository;
+import com.caiguantianxia.database.repository.BaseInLikeRepository;
 import ###BASE_PACKAGE###.model.po.###CLASS_NAME###PO;
 
 /**

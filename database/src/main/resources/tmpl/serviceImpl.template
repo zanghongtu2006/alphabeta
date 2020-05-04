@@ -2,7 +2,7 @@ package ###BASE_PACKAGE###.service.impl;
 
 import ###BASE_PACKAGE###.model.po.###CLASS_NAME###PO;
 import ###BASE_PACKAGE###.repository.###CLASS_NAME###Repository;
-import ###BASE_PACKAGE###.service.###CLASS_NAME###Service;
+import ###BASE_PACKAGE###.service.D###CLASS_NAME###Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Optional;
  * @author : Auto Generated
  */
 @Service
-public class ###CLASS_NAME###ServiceImpl implements ###CLASS_NAME###Service {
+public class D###CLASS_NAME###ServiceImpl implements D###CLASS_NAME###Service {
     @Autowired
     private ###CLASS_NAME###Repository repository;
 

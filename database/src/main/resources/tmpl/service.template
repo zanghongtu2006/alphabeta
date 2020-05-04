@@ -10,7 +10,7 @@ import java.util.Optional;
 /**
  * @author : Auto Generated
  */
-public interface ###CLASS_NAME###Service {
+public interface D###CLASS_NAME###Service {
     ###CLASS_NAME###PO create(###CLASS_NAME###PO model);
 
     ###CLASS_NAME###PO delete(Long id);
